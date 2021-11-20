@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Dungeon Bud</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Neucha&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+  <header>
+    <nav>
+      <ul class="nav-wrapper #424242 grey darken-3">
+        <a href="#" class="brand-logo left"><img class="responsive-img" id="logo" src="images/bookicon.png" />Dungeon
+          Bud</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a class="navbar-brand" href="/logout">Logout</a></li>
+        </ul>
+    </nav>
+  </header>
+  
+  <main>
+    <div class="container">
+      <div class="row">
+        <div class="col m6 push-m3 s12">
+          <h2>Welcome <span class="member-name"></span></h2>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col m6 s12 new-char">
+          <button data-target="charModal" class="btn modal-trigger #b71c1c red darken-4 waves-effect waves-black"><i class="material-icons">person_add</i> New Character </button>
+          <div id="charModal" class="modal">
+            <div class="modal-content">
+              <form class="character" method="POST">
+                <div class="form-group">
+                  <label for="characterName" class="name"><h5>Character Name</h5></label>
+                  <input type="text" class="form-control" id="charName" placeholder="Name">
+                </div>
+                <h5>Select a race</h5>
+                <div class = "race-select col s12">
+
+                </div>
+                <div class="form-group">
+                  <label for="characterRace" class="race"><h5>Character Race</h5></label>
+                  <input type="text" class="form-control" id="charRace" placeholder="Name">
+                </div>
+                <h5>Race Information</h5>
+                <div class = "race-info col s12">
+
+                </div>
+                <h5>Select a class</h5>
+                <div class = "class-select col s12">
+
+                </div>
+                <div class="form-group">
+                  <label for="characterClass" class="class"><h5>Character Class</h5></label>
+                  <input type="text" class="form-control" id="charClass" placeholder="Name">
+                </div>
+                <h5>Class Information</h5>
+                <div class = "class-info col s12">
+
+                </div>
+                <!-- <div class="input-field col s12">
+                  <h5>Race</h5>
+                  <select class = "race">
+                    <option value="" disabled selected>Choose Your Race</option>
+                  </select>
+                </div> -->
+                <!-- <div class="input-field col s12">
+                  <h5>Class</h5>
+                  <select class = "class">
+                    <option value="" disabled selected>Choose Your Class</option>
+                  </select>
+                </div> -->
+                <div class="form-group">
+                  <label for="characterLevel" class="level"><h5>Character Level</h5></label>
+                  <input type="text" class="form-control" id="charLevel" placeholder="Level">
+                </div>
+                <div class="form-group">
+                  <label for="characterBio" class="bio"><h5>Character Bio</h5></label>
+                  <input type="text" class="form-control" id="charBio" placeholder="Bio">
+                </div>
+                <input id="characterInput" type="submit" class="#b71c1c red darken-4" style="width: 50%; height: 50px;">
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <div class="col m6 s12 new-campaign">
+          <button data-target="campaignModal" class="btn modal-trigger #b71c1c red darken-4 waves-effect waves-black"><i class="material-icons">library_add</i> New Campaign </button>
+          <div id="campaignModal" class="modal">
+            <div class="modal-content">
+              <form class="campaign" method="POST">
+                <div class="form-group">
+                  <label for="campaignTitle" class="title"><h5>Campaign Title</h5></label>
+                  <input type="text" class="form-control" id="campTitle" placeholder="Title">
+                </div>
+                <div class="form-group">
+                  <label for="campaignDescription" class="description"><h5>Campaign Description</h5></label>
+                  <input type="text" class="form-control" id="campDesc" placeholder="Description">
+                </div>
+                <h5>Status</h5>
+                <select class = "status">
+                  <option value="" disabled selected>Choose A Status</option>
+                  <option value="Not Played">Not Played</option>
+                  <option value="In Progress">In Progress</option>
+                  <option value="Played">Played</option>
+                </select>
+                <h5>Players</h5>
+                <div class="input-field col s12">
+                  <select multiple class="characters">
+                  </select>
+                  <label></label>
+                </div>
+                <input id="campaignInput" type="submit" class="#b71c1c red darken-4" style="width: 50%; height: 50px;">
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col m6 s12">
+          <h2>Characters</h2>
+          <div class="userCharacters">
+          </div>
+        </div>
+        <div class="col m6 s12">
+            <h2>Campaigns</h2>
+            <div class="userCampaigns">
+            </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col s12 center-align">
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script type="text/javascript" src="js/main.js"></script>
+  <script type="text/javascript" src="js/character.js"></script>
+
+</body>
+
+</html>
